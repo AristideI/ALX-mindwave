@@ -6,11 +6,15 @@ import {
 } from "react-router-dom";
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
+import MainLayout from "./components/MainLayout";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
-    <Route path="/">
+    <Route path="/" element={<MainLayout />}>
       <Route index element={<Home />} />
+      <Route path="feed">
+        <Route index />
+      </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
   )
