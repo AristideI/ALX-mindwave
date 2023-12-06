@@ -1,7 +1,1 @@
 https://opentdb.com/api.php?amount=10&difficulty=easy
-
-
-
-
-
-Welcome to MindWave – the empowering community for African youth. Share, connect, and engage on our user-driven platform, fostering understanding and support. Receive daily motivation with uplifting quotes and explore our educational homepage for valuable mental health insights. MindWave is more than a website; it's a movement dedicated to empowering African youth. Join us in riding the Mind Wave to brighter, empowered futures.

@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="flex justify-between items-center gap-20 py-20 px-20">
-      <section className="w-2/5 flex flex-col gap-10">
+    <section className="flex md:flex-col justify-between items-center gap-20 py-20 px-20 md:px-10">
+      <section className="w-2/5 md:w-full md:items-center flex flex-col gap-10">
         <p className="text-8xl font-semibold text-light-100">Mind Wave</p>
-        <p className="text-xl">
+        <p className="text-xl text-justify">
           Discover MindWave, your daily retreat for mental wellness. Kickstart
           each day with uplifting affirmations, combatting stress and
           negativity. Journal your thoughts for personal growth through text,
@@ -27,7 +27,11 @@ export default function Hero() {
           </Link>
         </div>
       </section>
-      <img className="w-2/5" src="./public/hero.png" alt="hero image" />
+      <img
+        className="w-2/5 md:w-full"
+        src="./public/hero.png"
+        alt="hero image"
+      />
     </section>
   );
 }
