@@ -1,7 +1,8 @@
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import LogoIcon from "../assets/LogoIcon";
 
 export default function Header() {
+  const { pathname } = useLocation();
   return (
     <section className="flex justify-between items-center py-6">
       <section className="flex justify-start items-center gap-4 font-serif font-bold text-xl">
@@ -27,10 +28,14 @@ export default function Header() {
           </a>
         </div>
         <Link
-          to="/login"
+          to={pathname === "/signup" ? "/login" : "/signup"}
           className="bg-dark-100 text-dark-200 font-semibold px-6 py-2"
         >
-          Get Started
+          {pathname === "/login"
+            ? "Sign Up"
+            : pathname === "/signup"
+            ? "Log In"
+            : "Get Started"}
         </Link>
       </section>
     </section>
