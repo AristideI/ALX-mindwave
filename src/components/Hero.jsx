@@ -27,11 +27,7 @@ export default function Hero() {
           </Link>
         </div>
       </section>
-      <img
-        className="w-2/5 md:w-full"
-        src="./public/hero.png"
-        alt="hero image"
-      />
+      <img className="w-2/5 md:w-full" src="/hero.png" alt="hero image" />
     </section>
   );
 }
