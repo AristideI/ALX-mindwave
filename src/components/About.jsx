@@ -1,6 +1,9 @@
 export default function About() {
   return (
-    <section className="py-16 bg-light-200 text-dark-200 px-20 md:px-10">
+    <section
+      id="about"
+      className="py-16 bg-light-200 text-dark-200 px-20 md:px-10"
+    >
       <section className="flex justify-between items-center md:flex-col gap-10">
         <img className="w-2/5 md:w-full" src="/about.png" alt="about image" />
         <section className="w-2/5 md:w-full flex flex-col gap-8">
