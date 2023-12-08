@@ -4,7 +4,7 @@ import LogoIcon from "../assets/LogoIcon";
 export default function Header() {
   const { pathname } = useLocation();
   return (
-    <section className="flex justify-between items-center py-6">
+    <section className="flex justify-between items-center py-6 px-[5%]">
       <Link
         to="/"
         className="flex justify-start items-center gap-4 font-serif font-bold text-xl"

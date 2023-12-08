@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Hero() {
   return (
-    <section className="flex md:flex-col justify-between items-center gap-20 py-20 px-20 md:px-0">
+    <section className="flex md:flex-col justify-between items-center gap-20 py-20 px-20 md:px-[5%]">
       <section className="w-2/5 md:w-full md:items-center flex flex-col gap-10">
         <p className="text-8xl font-semibold text-light-100 whitespace-nowrap">
           Mind Wave
