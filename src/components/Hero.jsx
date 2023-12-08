@@ -4,7 +4,9 @@ export default function Hero() {
   return (
     <section className="flex md:flex-col justify-between items-center gap-20 py-20 px-20 md:px-0">
       <section className="w-2/5 md:w-full md:items-center flex flex-col gap-10">
-        <p className="text-8xl font-semibold text-light-100">Mind Wave</p>
+        <p className="text-8xl font-semibold text-light-100 whitespace-nowrap">
+          Mind Wave
+        </p>
         <p className="text-xl text-justify">
           Discover MindWave, your daily retreat for mental wellness. Kickstart
           each day with uplifting affirmations, combatting stress and

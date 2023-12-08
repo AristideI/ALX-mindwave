@@ -5,10 +5,13 @@ export default function Header() {
   const { pathname } = useLocation();
   return (
     <section className="flex justify-between items-center py-6">
-      <section className="flex justify-start items-center gap-4 font-serif font-bold text-xl">
+      <Link
+        to="/"
+        className="flex justify-start items-center gap-4 font-serif font-bold text-xl"
+      >
         <LogoIcon classes="text-dark-100 w-8 h-8" />
         <p>Mind Wave</p>
-      </section>
+      </Link>
       <section className="flex justify-between items-center gap-20">
         <div className="flex justify-between items-center gap-6 md:hidden">
           <a className="hover:underline" href="#about">
