@@ -28,6 +28,19 @@ export default function Feeds() {
     />
   ));
 
+  function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [array[i], array[j]] = [array[j], array[i]];
+    }
+  }
+  shuffleArray(posts);
+
+  // Example usage:
+  const myArray = [1, 2, 3, 4, 5];
+  shuffleArray(myArray);
+  console.log(myArray);
+
   function handleFormChange(e) {
     setFormError(false);
     setPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));

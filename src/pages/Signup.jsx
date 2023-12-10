@@ -45,7 +45,7 @@ export default function Signup() {
         body: formData,
       });
       setIsLoading(false);
-      if (response.status === 200) return navigate("/login");
+      if (response.status === 201) return navigate("/login");
       else {
         setIsLoading(false);
         setIsError(true);

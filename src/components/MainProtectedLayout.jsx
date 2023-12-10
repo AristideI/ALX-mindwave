@@ -78,7 +78,7 @@ export default function MainProtectedLayout() {
             />
             <div>
               <p className="font-bold text-xl">{username}</p>
-              <p>@{displayName.replace(" ", "")}</p>
+              <p className="truncate w-5/6">@{displayName.replace(" ", "")}</p>
             </div>
           </section>
           <button
