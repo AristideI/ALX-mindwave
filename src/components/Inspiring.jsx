@@ -2,8 +2,8 @@ import Faq from "./Faq";
 
 export default function Inspiring() {
   return (
-    <article className="relative mb-64 mt-28">
-      <section className="px-[5%] text-dark-200 bg-[url('./public/faq.jpg')] bg-cover bg-center pt-12 pb-40 relative">
+    <article className="mt-28">
+      <section className="px-[5%] text-dark-200 bg-[url('./public/faq.jpg')] bg-cover bg-center pt-12 pb-40 relative ">
         <section className="flex justify-between gap-6 sm:flex-col">
           <p className="font-bold text-4xl md:text-3xl w-fit whitespace-nowrap z-10">
             Inspiring Stories
@@ -53,7 +53,10 @@ export default function Inspiring() {
         </section>
         <div className="w-full h-full bg-dark-100/70 absolute top-0 left-0 z-0"></div>
       </section>
-      <section className="absolute top-[80%] rounded-2xl text-dark-200 w-3/5 left-[20%] bg-light-200 sm:w-4/5 sm:left-[10%]">
+      <section
+        id="faq"
+        className="mx-auto rounded-2xl z-2 text-dark-200 w-3/5 bg-light-200 sm:w-4/5"
+      >
         <Faq />
       </section>
     </article>

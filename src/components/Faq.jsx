@@ -3,9 +3,9 @@ import { ChevronUpIcon } from "@heroicons/react/20/solid";
 
 export default function Faq() {
   return (
-    <section className="my-12">
+    <section className="my-12 z-50 pb-8 pt-1">
       <p className="font-semibold text-3xl text-center my-12">{`FAQ's`}</p>
-      <div className="mx-auto w-full max-w-3xl rounded-2xl bg-light-20 p-2">
+      <div className="mx-auto w-full max-w-3xl rounded-2xl bg-light-200 transition-all duration-300 p-2">
         <Disclosure>
           {({ open }) => (
             <>

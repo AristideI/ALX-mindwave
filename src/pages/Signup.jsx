@@ -1,18 +1,44 @@
 import { useState } from "react";
 import LoginImg from "../assets/LoginImg";
 import LogoIcon from "../assets/LogoIcon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import LoadingSpinner from "../assets/LoadingSpinner";
 
 export default function Signup() {
-  const [userInfo, setUserInfo] = useState({ username: "", password: "" });
-
+  const [isLoading, setIsLoading] = useState(false);
+  const [userInfo, setUserInfo] = useState({
+    username: "",
+    password: "",
+    email: "",
+  });
+  const navigate = useNavigate();
   function handleFormChange(e) {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
-  function handleSignup() {}
+
+  async function handleSignup(e) {
+    setIsLoading(true);
+    e.preventDefault();
+    const formData = new URLSearchParams();
+    for (const [key, value] of Object.entries(userInfo)) {
+      formData.append(key, value);
+    }
+    const response = await fetch("https://mind-wave.onrender.com/signup", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/x-www-form-urlencoded",
+      },
+      body: formData,
+    });
+    console.log(response.status);
+    const data = await response.json();
+    console.log(data);
+    setIsLoading(true);
+    return navigate("/login");
+  }
 
   return (
-    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden mx-20 md:mx-0">
+    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden md:mx-0 mb-20 mt-4">
       <section className="w-1/2 md:w-full bg-light-200 flex flex-col gap-8 py-4 justify-around items-center">
         <div className="flex items-center gap-4">
           <LogoIcon classes="w-16 md:w-12" />
@@ -25,6 +51,8 @@ export default function Signup() {
             type="email"
             placeholder="Email"
             name="email"
+            onChange={(event) => handleFormChange(event)}
+            value={userInfo.email}
           />
           <input
             className="bg-transparent border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
@@ -43,13 +71,10 @@ export default function Signup() {
             onChange={(event) => handleFormChange(event)}
           />
           <button
-            className="bg-dark-200 text-light-200 font-bold text-xl border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
-            onClick={(e) => {
-              e.preventDefault();
-              handleSignup();
-            }}
+            className="bg-dark-200 text-light-200 mx-auto font-bold text-xl border-2 border-dark-200 rounded-xl px-4 py-2 w-full grid place-content-center"
+            onClick={handleSignup}
           >
-            Sign Up
+            {isLoading ? <LoadingSpinner /> : "Sign Up"}
           </button>
         </form>
         <p>

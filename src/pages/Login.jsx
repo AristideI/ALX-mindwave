@@ -11,7 +11,7 @@ export default function Login() {
   }
   function handleLogin() {}
   return (
-    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden mx-20 md:mx-0">
+    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden mx-80 md:mx-0 mb-20 mt-4">
       <section className="w-1/2 md:w-full bg-light-200 flex flex-col gap-8 py-4 justify-around items-center">
         <div className="flex items-center gap-4">
           <LogoIcon classes="w-16 md:w-12" />
