@@ -9,7 +9,9 @@ import Home from "./pages/Home";
 import MainLayout from "./components/MainLayout";
 import Login from "./pages/Login";
 import Signup from "./pages/Signup";
-import MainProtectedLayout from "./components/MainProtectedLayout";
+import MainProtectedLayout, {
+  loader as protector,
+} from "./components/MainProtectedLayout";
 import Feeds from "./pages/Feeds";
 
 const router = createBrowserRouter(
@@ -20,7 +22,7 @@ const router = createBrowserRouter(
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<Signup />} />
       </Route>
-      <Route element={<MainProtectedLayout />}>
+      <Route element={<MainProtectedLayout />} loader={protector}>
         <Route path="feeds" element={<Feeds />} />
         <Route path="quizzez" />
         <Route path="daily" />

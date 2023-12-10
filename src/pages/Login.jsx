@@ -1,8 +1,17 @@
+/* eslint-disable react-refresh/only-export-components */
 import { useState } from "react";
 import LoginImg from "../assets/LoginImg";
 import LogoIcon from "../assets/LogoIcon";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, redirect, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../assets/LoadingSpinner";
+
+export function loader() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (user) {
+    throw redirect("/feeds");
+  }
+  return null;
+}
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });

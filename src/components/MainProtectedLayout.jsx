@@ -1,6 +1,15 @@
+/* eslint-disable react-refresh/only-export-components */
 /* eslint-disable no-unused-vars */
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
+import { NavLink, Outlet, redirect, useNavigate } from "react-router-dom";
 import LogoIcon from "../assets/LogoIcon";
+
+export function loader() {
+  const user = JSON.parse(localStorage.getItem("user"));
+  if (!user) {
+    throw redirect("/login");
+  }
+  return null;
+}
 
 export default function MainProtectedLayout() {
   const navigate = useNavigate();
