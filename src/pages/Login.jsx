@@ -1,24 +1,65 @@
 import { useState } from "react";
 import LoginImg from "../assets/LoginImg";
 import LogoIcon from "../assets/LogoIcon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
+import LoadingSpinner from "../assets/LoadingSpinner";
 
 export default function Login() {
   const [userInfo, setUserInfo] = useState({ username: "", password: "" });
+  const [isError, setIsError] = useState(false);
+  const [formError, setFormError] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
   function handleFormChange(e) {
     setUserInfo((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   }
-  function handleLogin() {}
+
+  async function handleLogin(e) {
+    e.preventDefault();
+    if (!userInfo.password || !userInfo.username) {
+      setFormError(true);
+    } else {
+      setIsLoading(true);
+      const formData = new URLSearchParams();
+      for (const [key, value] of Object.entries(userInfo)) {
+        formData.append(key, value);
+      }
+      const response = await fetch("https://mind-wave.onrender.com/login", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
+      setIsLoading(false);
+      if (response.status === 200) {
+        localStorage.setItem("user", JSON.stringify(response.json()));
+        return navigate("/feeds");
+      } else {
+        setIsLoading(false);
+        setIsError(true);
+      }
+    }
+  }
+
   return (
-    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden mx-80 md:mx-0 mb-20 mt-4">
+    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden w-3/5 mx-auto mb-20 mt-4">
       <section className="w-1/2 md:w-full bg-light-200 flex flex-col gap-8 py-4 justify-around items-center">
         <div className="flex items-center gap-4">
           <LogoIcon classes="w-16 md:w-12" />
           <p className="font-serif font-bold text-3xl md:text-2xl">Mind Wave</p>
         </div>
         <p className="font-bold text-5xl md:text-4xl">Welcome Back</p>
-        <form className="flex flex-col w-1/2 gap-6 md:w-4/5">
+        <form className="flex flex-col w-4/5 gap-6">
+          {isError && (
+            <p className="text-center text-red-700">
+              Incorrect Username or password
+            </p>
+          )}
+          {formError && (
+            <p className="text-center text-red-700">Required input missing</p>
+          )}
           <input
             className="bg-transparent border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
             type="text"
@@ -37,12 +78,9 @@ export default function Login() {
           />
           <button
             className="bg-dark-200 text-light-200 font-bold text-xl border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
-            onClick={(e) => {
-              e.preventDefault();
-              handleLogin();
-            }}
+            onClick={handleLogin}
           >
-            Log In
+            {isLoading ? <LoadingSpinner /> : "Log In"}
           </button>
         </form>
         <p>

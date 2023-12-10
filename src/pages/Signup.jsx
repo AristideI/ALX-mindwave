@@ -5,7 +5,9 @@ import { Link, useNavigate } from "react-router-dom";
 import LoadingSpinner from "../assets/LoadingSpinner";
 
 export default function Signup() {
+  const [isError, setIsError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [formError, setFormError] = useState(false);
   const [userInfo, setUserInfo] = useState({
     username: "",
     password: "",
@@ -17,35 +19,48 @@ export default function Signup() {
   }
 
   async function handleSignup(e) {
-    setIsLoading(true);
     e.preventDefault();
-    const formData = new URLSearchParams();
-    for (const [key, value] of Object.entries(userInfo)) {
-      formData.append(key, value);
+    if (!userInfo.email || !userInfo.password || !userInfo.username) {
+      setFormError(true);
+    } else {
+      setIsLoading(true);
+      const formData = new URLSearchParams();
+      for (const [key, value] of Object.entries(userInfo)) {
+        formData.append(key, value);
+      }
+      const response = await fetch("https://mind-wave.onrender.com/signup", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
+      setIsLoading(false);
+      if (response.status === 200) return navigate("/login");
+      else {
+        setIsLoading(false);
+        setIsError(true);
+      }
     }
-    const response = await fetch("https://mind-wave.onrender.com/signup", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/x-www-form-urlencoded",
-      },
-      body: formData,
-    });
-    console.log(response.status);
-    const data = await response.json();
-    console.log(data);
-    setIsLoading(true);
-    return navigate("/login");
   }
 
   return (
-    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden md:mx-0 mb-20 mt-4">
+    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden w-3/5 mx-auto mb-20 mt-4">
       <section className="w-1/2 md:w-full bg-light-200 flex flex-col gap-8 py-4 justify-around items-center">
         <div className="flex items-center gap-4">
           <LogoIcon classes="w-16 md:w-12" />
           <p className="font-serif font-bold text-3xl md:text-2xl">Mind Wave</p>
         </div>
         <p className="font-bold text-5xl md:text-4xl">Join Now</p>
-        <form className="flex flex-col w-1/2 gap-6 md:w-4/5">
+        <form className="flex flex-col w-4/5 gap-6 md:w-4/5">
+          {isError && (
+            <p className="text-center text-red-700">
+              Sorry!! Username already taken
+            </p>
+          )}
+          {formError && (
+            <p className="text-center text-red-700">Required Input Missing</p>
+          )}
           <input
             className="bg-transparent border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
             type="email"
