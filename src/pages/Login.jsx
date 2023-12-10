@@ -32,9 +32,10 @@ export default function Login() {
         },
         body: formData,
       });
+      const userData = await response.json();
       setIsLoading(false);
       if (response.status === 200) {
-        localStorage.setItem("user", JSON.stringify(response.json()));
+        localStorage.setItem("user", JSON.stringify(userData));
         return navigate("/feeds");
       } else {
         setIsLoading(false);
@@ -44,7 +45,7 @@ export default function Login() {
   }
 
   return (
-    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden w-3/5 mx-auto mb-20 mt-4">
+    <article className="flex max-h-[85vh] text-dark-200 rounded-2xl overflow-hidden w-3/5 md:w-11/12 mx-auto mb-20 mt-4">
       <section className="w-1/2 md:w-full bg-light-200 flex flex-col gap-8 py-4 justify-around items-center">
         <div className="flex items-center gap-4">
           <LogoIcon classes="w-16 md:w-12" />
@@ -77,7 +78,7 @@ export default function Login() {
             onChange={(event) => handleFormChange(event)}
           />
           <button
-            className="bg-dark-200 text-light-200 font-bold text-xl border-2 border-dark-200 rounded-xl px-4 py-2 w-full"
+            className="bg-dark-200 text-light-200 font-bold text-xl border-2 border-dark-200 rounded-xl px-4 py-2 w-full grid place-content-center"
             onClick={handleLogin}
           >
             {isLoading ? <LoadingSpinner /> : "Log In"}
