@@ -7,26 +7,27 @@ import {
 import NotFound from "./pages/NotFound";
 import Home from "./pages/Home";
 import MainLayout from "./components/MainLayout";
-import Login from "./pages/Login";
-import Signup from "./pages/Signup";
+import Login, { loader as loginLoaders } from "./pages/Login";
+import Signup, { loader as signupLoader } from "./pages/Signup";
 import MainProtectedLayout, {
   loader as protector,
 } from "./components/MainProtectedLayout";
 import Feeds from "./pages/Feeds";
 import ViewPost from "./pages/ViewPost";
+import Quiz, { loader as quizLoader } from "./pages/Quiz";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route element={<MainLayout />}>
         <Route index element={<Home />} />
-        <Route path="login" element={<Login />} />
-        <Route path="signup" element={<Signup />} />
+        <Route path="login" element={<Login />} loader={loginLoaders} />
+        <Route path="signup" element={<Signup />} loader={signupLoader} />
       </Route>
       <Route element={<MainProtectedLayout />} loader={protector}>
         <Route path="feeds" element={<Feeds />} />
         <Route path="feeds/:id" element={<ViewPost />} />
-        <Route path="quizzez" />
+        <Route path="quiz" element={<Quiz />} loader={quizLoader} />
         <Route path="daily" />
       </Route>
       <Route path="*" element={<NotFound />} />
