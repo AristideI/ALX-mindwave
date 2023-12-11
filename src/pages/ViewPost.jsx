@@ -3,14 +3,18 @@ import { useParams } from "react-router-dom";
 import Spinner from "../assets/Spinner";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
+import CommentCard from "../components/CommentCard";
+import LoadingSpinner from "../assets/LoadingSpinner";
 dayjs.extend(relativeTime);
 
 export default function ViewPost() {
+  const currentUser = JSON.parse(localStorage.getItem("user"));
   const { id } = useParams();
   const [currentPost, setCurrentPost] = useState();
-  console.log(currentPost);
-
+  const [postData, setPostData] = useState({ text: "" });
+  const [formError, setFormError] = useState(false);
   const [isliked, setIsLiked] = useState(false);
+  const [isLoading, setIsLoading] = useState(false);
   const [postLikes, setPostLikes] = useState(Math.ceil(Math.random() * 15));
 
   function handleLiking() {
@@ -23,7 +27,56 @@ export default function ViewPost() {
     }
   }
 
-  console.log(currentPost);
+  const comments = currentPost?.comments?.map((comment) => (
+    <CommentCard
+      key={comment._id}
+      author={comment.author}
+      authorImg={comment.authorImg}
+      text={comment.text}
+      time={comment.time}
+    />
+  ));
+
+  function handleFormChange(e) {
+    setFormError(false);
+    setPostData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  }
+
+  async function handlePosting(e) {
+    e.preventDefault();
+    const commentInfo = {
+      id,
+      author: currentUser.displayName,
+      authorImg: currentUser.image,
+      text: postData.text,
+      time: dayjs().toString(),
+    };
+    console.log(commentInfo);
+    if (!postData.text) {
+      setFormError(true);
+    } else {
+      setIsLoading(true);
+      const formData = new URLSearchParams();
+      for (const [key, value] of Object.entries(commentInfo)) {
+        formData.append(key, value);
+      }
+      const response = await fetch("https://mind-wave.onrender.com/comment", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/x-www-form-urlencoded",
+        },
+        body: formData,
+      });
+      const postData = await response.json();
+      setIsLoading(false);
+      if (response.status === 200) {
+        console.log(postData);
+        window.location.reload();
+      } else {
+        setIsLoading(false);
+      }
+    }
+  }
   useEffect(() => {
     async function getData() {
       const response = await fetch("https://mind-wave.onrender.com/post");
@@ -33,11 +86,10 @@ export default function ViewPost() {
     }
     getData();
   }, []);
-
   return !currentPost ? (
     <Spinner />
   ) : (
-    <article>
+    <article className="px-6">
       <article className="flex justify-start gap-6 border-b border-light-200 py-6">
         <img
           className="w-12 h-12 md:w-10 md:h-10 rounded-full"
@@ -63,10 +115,39 @@ export default function ViewPost() {
             </button>
             <button className="flex items-center gap-2">
               <img className="w-5 h-5" src="/comm.png" alt="like icon" />
-              <p>{currentPost.commentsArr?.length} Comments</p>
+              <p>{currentPost.comments.length} Comments</p>
             </button>
           </div>
           <p>{dayjs(currentPost.time).fromNow()}</p>
+          <section className="w-full px-16 md:px-0">
+            <p className="font-semibold text-xl py-6">Comments</p>
+            <section className="py-8 px-4 flex gap-4 w-full border-b border-light-200">
+              <img
+                className="w-12 h-12 md:w-10 md:h-10 rounded-full object-cover"
+                src={currentUser.image}
+                alt=""
+              />
+              <form className="w-full">
+                {formError && (
+                  <p className="text-red-700">Please type something</p>
+                )}
+                <textarea
+                  className="placeholder:text-xl text-light-200 bg-transparent py-2 w-full active:bg-transparent focus:bg-transparent outline-none"
+                  placeholder="What's on your mind today?"
+                  name="text"
+                  value={postData.post}
+                  onChange={(e) => handleFormChange(e)}
+                />
+                <button
+                  className="bg-dark-100 px-6 py-1 text-dark-200 text-xl font-semibold rounded-xl"
+                  onClick={handlePosting}
+                >
+                  {isLoading ? <LoadingSpinner /> : "Comment"}
+                </button>
+              </form>
+            </section>
+            <section>{comments}</section>
+          </section>
         </section>
       </article>
     </article>
