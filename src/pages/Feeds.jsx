@@ -13,6 +13,7 @@ export default function Feeds() {
   const [formError, setFormError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
+  console.log(postData);
   const posts = allPosts.map((post) => (
     <PostCard
       key={post._id}
@@ -34,12 +35,6 @@ export default function Feeds() {
       [array[i], array[j]] = [array[j], array[i]];
     }
   }
-  shuffleArray(posts);
-
-  // Example usage:
-  const myArray = [1, 2, 3, 4, 5];
-  shuffleArray(myArray);
-  console.log(myArray);
 
   function handleFormChange(e) {
     setFormError(false);
@@ -87,6 +82,7 @@ export default function Feeds() {
     async function getData() {
       const response = await fetch("https://mind-wave.onrender.com/post");
       const posts = await response.json();
+      shuffleArray(posts);
       setAllPosts(posts);
     }
     getData();
@@ -102,14 +98,14 @@ export default function Feeds() {
         />
         <form className="w-full">
           {formError && <p className="text-red-700">Please type something</p>}
-          <input
+          <textarea
             className="placeholder:text-xl text-light-200 bg-transparent py-2 w-full active:bg-transparent focus:bg-transparent outline-none"
-            type="text"
-            placeholder="What's on your mind today ?"
+            placeholder="What's on your mind today?"
             name="text"
             value={postData.post}
             onChange={(e) => handleFormChange(e)}
           />
+
           <div className="w-full flex justify-between items-center mt-4 sm:flex-col sm:items-start gap-4">
             <select
               name="mood"

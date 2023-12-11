@@ -10,6 +10,7 @@ export default function PostCard({
   text,
   commentsArr,
   postImage,
+  id,
   time,
 }) {
   const [isliked, setIsLiked] = useState(false);
@@ -44,13 +45,13 @@ export default function PostCard({
           <button className="flex items-center gap-2" onClick={handleLiking}>
             <img
               className="w-5 h-5"
-              src={isliked ? "./public/liked.png" : "./public/like.png"}
+              src={isliked ? "/liked.png" : "/like.png"}
               alt="like icon"
             />
             <p>{postLikes} Likes</p>
           </button>
-          <Link to="/feeds/:id" className="flex items-center gap-2">
-            <img className="w-5 h-5" src="./public/comm.png" alt="like icon" />
+          <Link to={`/feeds/${id}`} className="flex items-center gap-2">
+            <img className="w-5 h-5" src="/comm.png" alt="like icon" />
             <p>{commentsArr.length} Comments</p>
           </Link>
         </div>

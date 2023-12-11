@@ -23,11 +23,7 @@ export default function Mental() {
           Learn More
         </Link>
       </section>
-      <img
-        className="w-1/3 md:w-4/5"
-        src="./public/mental.png"
-        alt="mental health"
-      />
+      <img className="w-1/3 md:w-4/5" src="/mental.png" alt="mental health" />
     </article>
   );
 }

@@ -13,6 +13,7 @@ import MainProtectedLayout, {
   loader as protector,
 } from "./components/MainProtectedLayout";
 import Feeds from "./pages/Feeds";
+import ViewPost from "./pages/ViewPost";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -24,6 +25,7 @@ const router = createBrowserRouter(
       </Route>
       <Route element={<MainProtectedLayout />} loader={protector}>
         <Route path="feeds" element={<Feeds />} />
+        <Route path="feeds/:id" element={<ViewPost />} />
         <Route path="quizzez" />
         <Route path="daily" />
       </Route>

@@ -3,7 +3,7 @@ import Faq from "./Faq";
 export default function Inspiring() {
   return (
     <article className="mt-28">
-      <section className="px-[5%] text-dark-200 bg-[url('./public/faq.jpg')] bg-cover bg-center pt-12 pb-40 relative ">
+      <section className="px-[5%] text-dark-200 bg-[url('/faq.jpg')] bg-cover bg-center pt-12 pb-40 relative ">
         <section className="flex justify-between gap-6 sm:flex-col">
           <p className="font-bold text-4xl md:text-3xl w-fit whitespace-nowrap z-10">
             Inspiring Stories

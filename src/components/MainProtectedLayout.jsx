@@ -41,7 +41,7 @@ export default function MainProtectedLayout() {
           >
             <img
               className="w-8 object-contain"
-              src="./public/home.png"
+              src="/home.png"
               alt="home icon"
             />
             <p className="font-semibold text-xl">Home</p>
@@ -52,7 +52,7 @@ export default function MainProtectedLayout() {
           >
             <img
               className="w-8 object-contain"
-              src="./public/quizzes.png"
+              src="/quizzes.png"
               alt="Quiz icon"
             />
             <p className="font-semibold text-xl">Quizzes</p>
@@ -63,7 +63,7 @@ export default function MainProtectedLayout() {
           >
             <img
               className="w-8 object-contain"
-              src="./public/motivation.png"
+              src="/motivation.png"
               alt="Motivationo icon"
             />
             <p className="font-semibold text-xl">Motivation</p>
@@ -98,7 +98,7 @@ export default function MainProtectedLayout() {
           <button>
             <img
               className="w-10 h-10 md:w-9 md:h-9 sm:w-8 sm:h-8 object-contain"
-              src="./public/menu.png"
+              src="/menu.png"
               alt=""
             />
           </button>

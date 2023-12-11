@@ -11,7 +11,7 @@ export default function How() {
         <section className="flex justify-around items-center relative md:flex-col gap-6">
           <div className="w-1/4 h-64 bg-dark-100 p-6 rounded-lg md:order-2 md:w-4/5">
             <img
-              src="./public/step1.svg"
+              src="/step1.svg"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -30,7 +30,7 @@ export default function How() {
           </div>
           <img
             className="absolute w-1/3 top-52 md:hidden"
-            src="../public/left.svg"
+            src="/left.svg"
             alt=""
           />
         </section>
@@ -52,21 +52,21 @@ export default function How() {
           </div>
           <div className="w-1/4 h-64 bg-light-200 p-6 rounded-lg md:w-4/5">
             <img
-              src="./public/step2.svg"
+              src="/step2.svg"
               className="w-full h-full object-cover"
               alt=""
             />
           </div>
           <img
             className="absolute w-1/3 top-52 md:hidden"
-            src="../public/right.svg"
+            src="/right.svg"
             alt=""
           />
         </section>
         <section className="flex justify-around items-center relative md:flex-col gap-6">
           <div className="w-1/4 h-64 bg-dark-100 p-6 rounded-lg md:order-2 md:w-4/5">
             <img
-              src="./public/step3.svg"
+              src="/step3.svg"
               className="w-full h-full object-cover"
               alt=""
             />
@@ -85,7 +85,7 @@ export default function How() {
           </div>
           <img
             className="absolute w-1/3 top-52 md:hidden"
-            src="../public/left.svg"
+            src="/left.svg"
             alt=""
           />
         </section>
@@ -105,7 +105,7 @@ export default function How() {
           </div>
           <div className="w-1/4 h-64 bg-light-200 p-6 rounded-lg md:w-4/5">
             <img
-              src="./public/step4.svg"
+              src="/step4.svg"
               className="w-full h-full object-cover"
               alt=""
             />

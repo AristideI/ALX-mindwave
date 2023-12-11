@@ -13,7 +13,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
@@ -24,7 +24,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
@@ -35,7 +35,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
@@ -48,7 +48,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
@@ -59,7 +59,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
@@ -70,7 +70,7 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="./public/meet.jpg"
+            src="/meet.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">

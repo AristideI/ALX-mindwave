@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  transition: all 1s;
-}
-
 :root {
   --blue1: #0b1127;
   --blue2: #51b4e4;

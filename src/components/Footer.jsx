@@ -50,10 +50,10 @@ export default function Footer() {
             <p>Email: mind.wave@gmail.com</p>
             <p>Phone: +250785478021</p>
             <div className="flex justify-start gap-3">
-              <img className="w-6" src="./public/twitter.png" alt="twitter" />
-              <img className="w-6" src="./public/facebook.png" alt="twitter" />
-              <img className="w-6" src="./public/linkedin.png" alt="twitter" />
-              <img className="w-6" src="./public/instagram.png" alt="twitter" />
+              <img className="w-6" src="/twitter.png" alt="twitter" />
+              <img className="w-6" src="/facebook.png" alt="twitter" />
+              <img className="w-6" src="/linkedin.png" alt="twitter" />
+              <img className="w-6" src="/instagram.png" alt="twitter" />
             </div>
           </div>
         </section>
