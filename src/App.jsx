@@ -15,6 +15,7 @@ import MainProtectedLayout, {
 import Feeds from "./pages/Feeds";
 import ViewPost from "./pages/ViewPost";
 import Quiz, { loader as quizLoader } from "./pages/Quiz";
+import Motivation from "./pages/Motivation";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -28,7 +29,7 @@ const router = createBrowserRouter(
         <Route path="feeds" element={<Feeds />} />
         <Route path="feeds/:id" element={<ViewPost />} />
         <Route path="quiz" element={<Quiz />} loader={quizLoader} />
-        <Route path="daily" />
+        <Route path="daily" element={<Motivation />} />
       </Route>
       <Route path="*" element={<NotFound />} />
     </Route>
