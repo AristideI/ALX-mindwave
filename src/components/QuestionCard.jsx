@@ -9,7 +9,7 @@ export default function QuestionCard({ num, question, correct, options, dif }) {
   const answerCards = options.map((answer, ind) => (
     <button
       key={ind}
-      className={`py-2 px-8 border border-light-200 rounded ${
+      className={`py-2 px-8 border rounded ${
         answer === correct ? correctStyles : wrongStyles
       }`}
       onClick={handleAnswering}
