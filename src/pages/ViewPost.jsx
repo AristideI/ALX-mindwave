@@ -15,7 +15,7 @@ export default function ViewPost() {
   const [formError, setFormError] = useState(false);
   const [isliked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
-  const [postLikes, setPostLikes] = useState(Math.ceil(Math.random() * 15));
+  const [postLikes, setPostLikes] = useState(Math.ceil(Math.random() * 7));
 
   function handleLiking() {
     if (isliked) {
