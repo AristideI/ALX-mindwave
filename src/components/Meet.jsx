@@ -13,34 +13,34 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/aristote.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
-            <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="font-semibold text-xl">Aristote Gahima</p>
+            <p className="text-sm">UI/UX Designer</p>
           </div>
         </div>
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/mban.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
-            <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="font-semibold text-xl">Esther Mbanzabigwi</p>
+            <p className="text-sm">UI/UX Designer</p>
           </div>
         </div>
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/davyy.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
-            <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="font-semibold text-xl">Davy Mbuto</p>
+            <p className="text-sm">Frontend developer</p>
           </div>
         </div>
       </section>
@@ -48,34 +48,34 @@ export default function Meet() {
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/yntia.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
-            <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="font-semibold text-xl">Cynthia Umugwaneza</p>
+            <p className="text-sm">Frontend developer</p>
           </div>
         </div>
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/lana.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
-            <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="font-semibold text-xl">Lana Mutoni</p>
+            <p className="text-sm">Backend developer</p>
           </div>
         </div>
         <div className="w-1/4 h-full flex flex-col items-center gap-4 md:hidden border border-light-200 py-2 rounded-xl">
           <img
             className="h-52 w-10/12 object-cover"
-            src="/meet.jpg"
+            src="/ari.jpg"
             alt="team member photo"
           />
           <div className="flex flex-col items-center">
             <p className="font-semibold text-xl">Aristide Isingizwe</p>
-            <p className="text-sm">FullStack developer</p>
+            <p className="text-sm">Backend developer</p>
           </div>
         </div>
         <div className="w-1/4 md:w-full h-full flex flex-col gap-6">
