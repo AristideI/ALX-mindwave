@@ -18,33 +18,33 @@ export default function Inspiring() {
               <div className="flex items-center gap-4">
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="sample.jpg"
+                  src="./public/diana.jpg"
                   alt=""
                 />
                 <div>
-                  <p className="font-serif font-bold">Aristide Isingizwe</p>
+                  <p className="font-serif font-bold">Diana Ingabire</p>
                   <p className="text-sm">Mind Wave user</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="sample.jpg"
+                  src="./public/imp.jpg"
                   alt=""
                 />
                 <div>
-                  <p className="font-serif font-bold">Aristide Isingizwe</p>
+                  <p className="font-serif font-bold">Fidel IMPANO</p>
                   <p className="text-sm">Mind Wave user</p>
                 </div>
               </div>
               <div className="flex items-center gap-4">
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="sample.jpg"
+                  src="./public/linda.jpg"
                   alt=""
                 />
                 <div>
-                  <p className="font-serif font-bold">Aristide Isingizwe</p>
+                  <p className="font-serif font-bold">Linda Irakoze</p>
                   <p className="text-sm">Mind Wave user</p>
                 </div>
               </div>
