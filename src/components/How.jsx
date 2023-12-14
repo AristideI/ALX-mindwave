@@ -1,6 +1,6 @@
 export default function How() {
   return (
-    <article className="text-light-200 my-16">
+    <article className="text-light-200 my-16" id="how">
       <p className="text-center font-semibold text-lg font-serif">
         How it Works
       </p>

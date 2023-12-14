@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 export default function Meet() {
   return (
-    <article className="flex flex-col justify-between my-16 mx-[5%]">
+    <article className="flex flex-col justify-between my-16 mx-[5%]" id="meet">
       <section className="w-full flex justify-between gap-8 items-center">
         <div className="w-1/4 md:w-full h-full">
           <h1 className="font-serif font-bold">Meet The Team</h1>

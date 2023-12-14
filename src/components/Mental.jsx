@@ -2,7 +2,10 @@ import { Link } from "react-router-dom";
 
 export default function Mental() {
   return (
-    <article className="bg-light-200 px-[5%] py-12 text-dark-200 flex justify-between gap-16 items-center md:flex-col">
+    <article
+      id="mental"
+      className="bg-light-200 px-[5%] py-12 text-dark-200 flex justify-between gap-16 items-center md:flex-col"
+    >
       <section>
         <p className="font-semibold text-5xl md:text-4xl sm:text-3xl ">
           {`There's`} No One Face To
