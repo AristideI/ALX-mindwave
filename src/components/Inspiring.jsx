@@ -30,7 +30,7 @@ export default function Inspiring() {
               >
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="./public/diana.jpg"
+                  src="/diana.jpg"
                   alt=""
                 />
                 <div>
@@ -44,7 +44,7 @@ export default function Inspiring() {
               >
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="./public/imp.jpg"
+                  src="/imp.jpg"
                   alt=""
                 />
                 <div>
@@ -58,7 +58,7 @@ export default function Inspiring() {
               >
                 <img
                   className="w-12 h-12 rounded-full object-cover"
-                  src="./public/linda.jpg"
+                  src="/linda.jpg"
                   alt=""
                 />
                 <div>
