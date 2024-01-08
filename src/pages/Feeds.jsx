@@ -13,8 +13,6 @@ export default function Feeds() {
   const [formError, setFormError] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
 
-  console.log(allPosts);
-  console.log(postData);
   const posts = allPosts.map((post) => (
     <PostCard
       key={post._id}
