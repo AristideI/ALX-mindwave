@@ -16,6 +16,8 @@ export default function ViewPost() {
   const [isliked, setIsLiked] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
   const [postLikes, setPostLikes] = useState(Math.ceil(Math.random() * 7));
+  const [comments, setcomments] = useState([]);
+  console.log(postData);
 
   function handleLiking() {
     if (isliked) {
@@ -27,7 +29,7 @@ export default function ViewPost() {
     }
   }
 
-  const comments = currentPost?.comments?.map((comment) => (
+  const commentsDivs = comments?.map((comment) => (
     <CommentCard
       key={comment._id}
       author={comment.author}
@@ -51,11 +53,12 @@ export default function ViewPost() {
       text: postData.text,
       time: dayjs().toString(),
     };
-    console.log(commentInfo);
+
     if (!postData.text) {
       setFormError(true);
     } else {
-      setIsLoading(true);
+      setcomments((prev) => [...prev, commentInfo]);
+      setPostData({ text: "" });
       const formData = new URLSearchParams();
       for (const [key, value] of Object.entries(commentInfo)) {
         formData.append(key, value);
@@ -68,10 +71,9 @@ export default function ViewPost() {
         body: formData,
       });
       const postData = await response.json();
-      setIsLoading(false);
       if (response.status === 200) {
         console.log(postData);
-        window.location.reload();
+        // window.location.reload();
       } else {
         setIsLoading(false);
       }
@@ -83,9 +85,11 @@ export default function ViewPost() {
       const posts = await response.json();
       const post = posts.find((post) => post._id === id);
       setCurrentPost(post);
+      setcomments(post.comments);
     }
     getData();
   }, []);
+
   return !currentPost ? (
     <Spinner />
   ) : (
@@ -135,7 +139,7 @@ export default function ViewPost() {
                   className="placeholder:text-xl text-light-200 bg-transparent py-2 w-full active:bg-transparent focus:bg-transparent outline-none"
                   placeholder="What's on your mind today?"
                   name="text"
-                  value={postData.post}
+                  value={postData.text}
                   onChange={(e) => handleFormChange(e)}
                 />
                 <button
@@ -146,7 +150,7 @@ export default function ViewPost() {
                 </button>
               </form>
             </section>
-            <section>{comments}</section>
+            <section>{commentsDivs}</section>
           </section>
         </section>
       </article>
